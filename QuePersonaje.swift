@@ -33,7 +33,13 @@ let descripciones = [
     "Tu empatía y solidaridad hacen que siempre cuides a los demás."
 ]
 
-let nombres = Array(personajes.keys).sorted()
+let nombres = [
+    "El Lider",
+    "El Explorador",
+    "El Estratega",
+    "El Creativo",
+    "El Protector"
+]
 
 var puntuaciones = Array(repeating: 0, count: 5)
 
