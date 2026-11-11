@@ -1,0 +1,24 @@
+
+name: QuePersonaje
+
+options:
+  bundleIdPrefix: com.uveg.reto
+
+settings:
+  base:
+    SWIFT_VERSION: 5.9
+    IPHONEOS_DEPLOYMENT_TARGET: 16.0
+
+targets:
+  QuePersonaje:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: iOSApp
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.uveg.QuePersonaje
+        INFOPLIST_KEY_CFBundleDisplayName: Que Personaje
+        TARGETED_DEVICE_FAMILY: "1,2"
+        GENERATE_INFOPLIST_FILE: YES
