@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 @main
@@ -10,4 +9,3 @@ struct QuePersonajeApp: App {
         }
     }
 }
-
