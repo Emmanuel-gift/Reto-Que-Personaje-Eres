@@ -1,44 +1,24 @@
 
-name: Compilar aplicacion iOS
+name: QuePersonaje
 
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
+options:
+  bundleIdPrefix: com.uveg.reto
 
-jobs:
-  build:
-    runs-on: macos-15
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
 
-    steps:
-      - name: Descargar repositorio
-        uses: actions/checkout@v4
-
-      - name: Instalar XcodeGen
-        run: brew install xcodegen
-
-   - name: Verificar archivos
-  run: |
-    pwd
-    ls -la
-    cat project.yml
-    find iOSApp -type f
-
-- name: Generar proyecto Xcode
-  run: |
-    xcodegen generate
-    ls -la QuePersonaje.xcodeproj
-
-- name: Verificar esquema
-  run: |
-    xcodebuild -list -project QuePersonaje.xcodeproj  
-
-      - name: Compilar aplicacion
-        run: |
-          xcodebuild \
-            -project QuePersonaje.xcodeproj \
-            -scheme QuePersonaje \
-            -sdk iphonesimulator \
-            -destination 'generic/platform=iOS Simulator' \
-            CODE_SIGNING_ALLOWED=NO \
-            build
+targets:
+  QuePersonaje:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: iOSApp
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.uveg.QuePersonaje
+        INFOPLIST_KEY_CFBundleDisplayName: "Que Personaje"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        GENERATE_INFOPLIST_FILE: YES
