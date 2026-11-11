@@ -17,8 +17,21 @@ jobs:
       - name: Instalar XcodeGen
         run: brew install xcodegen
 
-      - name: Generar proyecto Xcode
-        run: xcodegen generate
+   - name: Verificar archivos
+  run: |
+    pwd
+    ls -la
+    cat project.yml
+    find iOSApp -type f
+
+- name: Generar proyecto Xcode
+  run: |
+    xcodegen generate
+    ls -la QuePersonaje.xcodeproj
+
+- name: Verificar esquema
+  run: |
+    xcodebuild -list -project QuePersonaje.xcodeproj  
 
       - name: Compilar aplicacion
         run: |
