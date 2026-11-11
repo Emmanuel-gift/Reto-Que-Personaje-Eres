@@ -3,7 +3,8 @@ name: Compilar aplicacion iOS
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -17,8 +18,18 @@ jobs:
       - name: Instalar XcodeGen
         run: brew install xcodegen
 
+      - name: Verificar archivos
+        run: |
+          pwd
+          ls -la
+          cat project.yml
+          find iOSApp -type f
+
       - name: Generar proyecto Xcode
         run: xcodegen generate
+
+      - name: Verificar proyecto
+        run: xcodebuild -list -project QuePersonaje.xcodeproj
 
       - name: Compilar aplicacion
         run: |
