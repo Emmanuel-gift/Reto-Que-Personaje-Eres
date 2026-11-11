@@ -14,8 +14,8 @@ targets:
     platform: iOS
     deploymentTarget: "16.0"
     sources:
-      - path: iOSApp/QuePersonajeApp.swift
-      - path: iOSApp/ContentView.swift
+      - path: iOSApp
+      - path: QuePersonajeApp.swift
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.uveg.QuePersonaje
